@@ -9,7 +9,7 @@ def create_app():
 
     @app.route('/', methods=['GET'])
     def root():
-        return "welcome to heaven"
+        return "welcome to heaven 2.0"
     
     @app.route('/health', methods=['GET'])
     def health():

@@ -33,17 +33,14 @@ pipeline {
         }
         stage('prepare docker image') {
             steps {
-                sh 'echo $DOCKER_IMAGE_NAME'
-                sh 'echo $DOCKER_USER_NAME'
-                sh 'echo $DOCKER_AUTH_TOKEN'
-                // sh 'docker image build -t ${DOCKER_IMAGE_NAME} .'
+                sh 'docker image build -t ${DOCKER_IMAGE_NAME} .'
             }
         }
 
         stage('docker login') {
             steps {
-                // sh 'docker login -u '
+                sh 'echo ${DOCKER_AUTH_TOKEN} | docker login -u ${DOCKER_USER_NAME} --password-stdin'
             }
-        }
+        }   
     }
 }

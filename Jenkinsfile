@@ -49,7 +49,7 @@ pipeline {
         }   
         stage('restart service') {
             steps {
-                sh 'docker service update --force --image ${DOCKER_IMAGE_NAME}'
+                sh 'docker service update --force --image ${DOCKER_IMAGE_NAME} myservice' 
             }
         }
     }
